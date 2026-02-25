@@ -1,0 +1,42 @@
+{
+  "name": "@vibeclaw-ai/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"tsx watch server/index.ts\" \"vite\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "vite",
+    "build": "tsc -b && vite build && tsup server/index.ts --format esm --outDir dist-server",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist dist-server"
+  },
+  "dependencies": {
+    "@vibeclaw-ai/auth": "workspace:*",
+    "@vibeclaw-ai/budget": "workspace:*",
+    "@vibeclaw-ai/core": "workspace:*",
+    "@vibeclaw-ai/providers": "workspace:*",
+    "@vibeclaw-ai/skills": "workspace:*",
+    "@vibeclaw-ai/workspace": "workspace:*",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.1.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0"
+  }
+}

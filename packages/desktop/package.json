@@ -1,0 +1,46 @@
+{
+  "name": "@vibeclaw-ai/desktop",
+  "version": "0.2.0",
+  "private": true,
+  "description": "VibeClaw AI Desktop App",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.electron.json",
+    "dev": "electron dist-electron/main.js",
+    "package:mac": "electron-builder --mac",
+    "package:win": "electron-builder --win",
+    "package:all": "electron-builder --mac --win",
+    "clean": "rm -rf dist-electron dist-app"
+  },
+  "dependencies": {
+    "@vibeclaw-ai/auth": "workspace:*",
+    "@vibeclaw-ai/proxy": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.0",
+    "typescript": "^5.8.0"
+  },
+  "build": {
+    "appId": "ai.vibeclaw.desktop",
+    "productName": "VibeClaw AI",
+    "directories": {
+      "output": "dist-app"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "!node_modules"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false
+    }
+  }
+}
