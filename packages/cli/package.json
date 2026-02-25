@@ -1,0 +1,56 @@
+{
+  "name": "vibeclaw-ai",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "ChatGPT OAuth-powered open-source AI assistant + coding agent",
+  "license": "MIT",
+  "bin": {
+    "vibeclaw-ai": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --external @vibeclaw-ai/auth --external @vibeclaw-ai/proxy --external @vibeclaw-ai/workspace --external @vibeclaw-ai/providers --external @vibeclaw-ai/telegram --external @vibeclaw-ai/budget --external @vibeclaw-ai/skills --external @vibeclaw-ai/core --external @vibeclaw-ai/daemon --external grammy",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@vibeclaw-ai/auth": "workspace:*",
+    "@vibeclaw-ai/proxy": "workspace:*",
+    "@vibeclaw-ai/workspace": "workspace:*",
+    "@vibeclaw-ai/providers": "workspace:*",
+    "@vibeclaw-ai/telegram": "workspace:*",
+    "@vibeclaw-ai/budget": "workspace:*",
+    "@vibeclaw-ai/skills": "workspace:*",
+    "@vibeclaw-ai/core": "workspace:*",
+    "@vibeclaw-ai/daemon": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vibeclaw-ai/vibeclaw-ai"
+  },
+  "keywords": [
+    "ai",
+    "chatgpt",
+    "codex",
+    "agent",
+    "assistant",
+    "cli",
+    "oauth",
+    "openclaw"
+  ]
+}

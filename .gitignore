@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.local
+.env.*
+.turbo/
+*.log
+.DS_Store
+coverage/
+.vibepity/
+pnpm-lock.yaml
