@@ -36,7 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const electron_1 = require("electron");
 const path = __importStar(require("path"));
 const child_process_1 = require("child_process");
-const APP_NAME = 'VibeClaw AI';
+const APP_NAME = 'Vibepity';
 const API_PORT = 3177;
 const WEB_PORT = 5173;
 const PROXY_PORT = 8317;
@@ -67,7 +67,7 @@ function createWindow() {
           <body style="background:#0a0a0a;color:#e5e5e5;font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column">
             <h1 style="color:#8b5cf6">${APP_NAME}</h1>
             <p>Starting server...</p>
-            <p style="color:#666;font-size:13px;margin-top:20px">If this persists, run: vibeclaw-ai dev</p>
+            <p style="color:#666;font-size:13px;margin-top:20px">If this persists, run: vibepity dev</p>
           </body>
         </html>
       `);

@@ -191,7 +191,7 @@ export async function authenticateOAuth(
           await saveProviderTokens(provider, stored);
 
           res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(`<html><body style="font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#0a0a0a;color:#fff"><div style="text-align:center"><h1 style="font-size:3em">VibeClaw AI</h1><p style="color:#4ade80;font-size:1.5em">${config.label} authenticated!</p><p>You can close this window.</p></div></body></html>`);
+          res.end(`<html><body style="font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#0a0a0a;color:#fff"><div style="text-align:center"><h1 style="font-size:3em">Vibepity</h1><p style="color:#4ade80;font-size:1.5em">${config.label} authenticated!</p><p>You can close this window.</p></div></body></html>`);
           server.close();
           resolve(stored);
         } catch (e) {
@@ -205,8 +205,8 @@ export async function authenticateOAuth(
 
     server.listen(config.callbackPort, async () => {
       const authUrl = buildAuthUrl(config, challenge, state);
-      console.log(`[VibeClaw AI] Opening ${config.label} login...`);
-      console.log(`[VibeClaw AI] If browser doesn't open, visit: ${authUrl}`);
+      console.log(`[Vibepity] Opening ${config.label} login...`);
+      console.log(`[Vibepity] If browser doesn't open, visit: ${authUrl}`);
       try {
         await open(authUrl);
       } catch {

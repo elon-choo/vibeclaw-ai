@@ -1,4 +1,4 @@
-import { getValidToken, authenticateOAuth, loadConfig } from '@vibeclaw-ai/auth';
+import { getValidToken, authenticateOAuth, loadConfig } from '@vibepity/auth';
 import type { Provider, CompletionOptions, CompletionResult } from './types.js';
 
 const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
@@ -50,7 +50,7 @@ export class ClaudeProvider implements Provider {
         'Content-Type': 'application/json',
         'x-api-key': authHeader,
         'anthropic-version': '2024-01-01',
-        'User-Agent': 'vibeclaw-ai/0.1.0',
+        'User-Agent': 'vibepity/0.1.0',
       },
       body: JSON.stringify({
         model: options.model ?? DEFAULT_MODEL,
@@ -103,7 +103,7 @@ export class ClaudeProvider implements Provider {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
         'anthropic-version': '2024-01-01',
-        'User-Agent': 'vibeclaw-ai/0.1.0',
+        'User-Agent': 'vibepity/0.1.0',
       },
       body: JSON.stringify({
         model: options.model ?? DEFAULT_MODEL,

@@ -1,7 +1,7 @@
 import { ui, spinner } from '../ui.js';
 
 export async function proxyStart(): Promise<void> {
-  const { ProxyManager } = await import('@vibeclaw-ai/proxy');
+  const { ProxyManager } = await import('@vibepity/proxy');
   const manager = new ProxyManager();
 
   const s = spinner('Starting proxy...');
@@ -17,7 +17,7 @@ export async function proxyStart(): Promise<void> {
 }
 
 export async function proxyStop(): Promise<void> {
-  const { ProxyManager } = await import('@vibeclaw-ai/proxy');
+  const { ProxyManager } = await import('@vibepity/proxy');
   const manager = new ProxyManager();
 
   await manager.stop();
@@ -25,7 +25,7 @@ export async function proxyStop(): Promise<void> {
 }
 
 export async function proxyStatus(): Promise<void> {
-  const { ProxyManager } = await import('@vibeclaw-ai/proxy');
+  const { ProxyManager } = await import('@vibepity/proxy');
   const manager = new ProxyManager();
 
   const status = await manager.status();
@@ -38,6 +38,6 @@ export async function proxyStatus(): Promise<void> {
     const healthy = await manager.healthCheck();
     ui.dim(`Health: ${healthy ? 'OK' : 'UNHEALTHY'}`);
   } else {
-    ui.warn('Proxy is not running. Start with: vibeclaw-ai proxy start');
+    ui.warn('Proxy is not running. Start with: vibepity proxy start');
   }
 }

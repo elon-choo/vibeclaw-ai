@@ -83,6 +83,6 @@ export const PROVIDER_CONFIGS: Record<AuthProvider, OAuthProviderConfig> = {
 /** Legacy compat */
 export const OAUTH_CONFIG = CODEX_OAUTH;
 
-export const AUTH_DIR_NAME = '.vibeclaw-ai';
+export const AUTH_DIR_NAME = '.vibepity';
 export const AUTH_FILE_NAME = 'auth.json';
 export const CONFIG_FILE_NAME = 'config.json';

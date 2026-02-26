@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/proxy",
+  "name": "@vibepity/proxy",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,7 +19,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/auth": "workspace:*",
+    "@vibepity/auth": "workspace:*",
     "yaml": "^2.7.0"
   },
   "devDependencies": {

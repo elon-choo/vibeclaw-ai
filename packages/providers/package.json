@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/providers",
+  "name": "@vibepity/providers",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,7 +19,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/auth": "workspace:*"
+    "@vibepity/auth": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.4.0",

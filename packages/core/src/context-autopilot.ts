@@ -1,6 +1,6 @@
-import { readWorkspaceFile, listSkills } from '@vibeclaw-ai/workspace';
-import type { WorkspaceFile } from '@vibeclaw-ai/workspace';
-import type { Message } from '@vibeclaw-ai/providers';
+import { readWorkspaceFile, listSkills } from '@vibepity/workspace';
+import type { WorkspaceFile } from '@vibepity/workspace';
+import type { Message } from '@vibepity/providers';
 
 /** Context slot with priority and token cost */
 interface ContextSlot {
@@ -14,7 +14,7 @@ interface ContextSlot {
  * Context Autopilot - automatically optimizes the context window.
  *
  * OpenClaw requires users to manually configure which files go into context.
- * VibeClaw AI analyzes the conversation and selects relevant workspace files,
+ * Vibepity analyzes the conversation and selects relevant workspace files,
  * skills, and memory within the token budget.
  *
  * Strategy:

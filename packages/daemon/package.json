@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/daemon",
+  "name": "@vibepity/daemon",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,9 +19,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/proxy": "workspace:*",
-    "@vibeclaw-ai/auth": "workspace:*",
-    "@vibeclaw-ai/telegram": "workspace:*"
+    "@vibepity/proxy": "workspace:*",
+    "@vibepity/auth": "workspace:*",
+    "@vibepity/telegram": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.4.0",

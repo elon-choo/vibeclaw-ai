@@ -1,7 +1,7 @@
 import { ui } from '../ui.js';
 
 export async function budgetStatus(): Promise<void> {
-  const { BudgetTracker } = await import('@vibeclaw-ai/budget');
+  const { BudgetTracker } = await import('@vibepity/budget');
   const tracker = new BudgetTracker();
   const status = await tracker.getStatus();
 
@@ -35,7 +35,7 @@ export async function budgetStatus(): Promise<void> {
 }
 
 export async function budgetSet(args: string[]): Promise<void> {
-  const { BudgetTracker } = await import('@vibeclaw-ai/budget');
+  const { BudgetTracker } = await import('@vibepity/budget');
   const tracker = new BudgetTracker();
 
   const updates: Record<string, number> = {};
@@ -63,7 +63,7 @@ export async function budgetSet(args: string[]): Promise<void> {
   }
 
   if (Object.keys(updates).length === 0) {
-    ui.info('Usage: vibeclaw-ai budget set --daily-tokens 500000 --daily-cost 5');
+    ui.info('Usage: vibepity budget set --daily-tokens 500000 --daily-cost 5');
     return;
   }
 

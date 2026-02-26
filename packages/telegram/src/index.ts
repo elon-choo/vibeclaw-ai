@@ -1,6 +1,6 @@
 import { Bot } from 'grammy';
-import { loadConfig } from '@vibeclaw-ai/auth';
-import { CodexProvider, ClaudeProvider, GeminiProvider, type Provider, type Message } from '@vibeclaw-ai/providers';
+import { loadConfig } from '@vibepity/auth';
+import { CodexProvider, ClaudeProvider, GeminiProvider, type Provider, type Message } from '@vibepity/providers';
 
 interface Session {
   history: Message[];
@@ -38,7 +38,7 @@ export async function startTelegramBot(botToken?: string): Promise<void> {
     throw new Error(
       'Telegram Bot Token not found. Set via:\n' +
       '  1. TELEGRAM_BOT_TOKEN env var\n' +
-      '  2. ~/.vibeclaw-ai/config.json\n' +
+      '  2. ~/.vibepity/config.json\n' +
       '  3. Pass to startTelegramBot(token)\n\n' +
       'Get a token from @BotFather: https://t.me/BotFather'
     );
@@ -49,7 +49,7 @@ export async function startTelegramBot(botToken?: string): Promise<void> {
   // /start
   bot.command('start', async (ctx) => {
     await ctx.reply(
-      'VibeClaw AI에 오신 것을 환영합니다! 🤖\n\n' +
+      'Vibepity에 오신 것을 환영합니다! 🤖\n\n' +
       '멀티 AI 프로바이더 지원:\n' +
       '• ChatGPT (Codex) - $0 구독 기반\n' +
       '• Claude (Anthropic)\n' +
@@ -100,7 +100,7 @@ export async function startTelegramBot(botToken?: string): Promise<void> {
 
   // /status
   bot.command('status', async (ctx) => {
-    const { getAllAuthStatus } = await import('@vibeclaw-ai/auth');
+    const { getAllAuthStatus } = await import('@vibepity/auth');
     const statuses = await getAllAuthStatus();
     const session = getSession(ctx.chat.id);
 
@@ -116,22 +116,22 @@ export async function startTelegramBot(botToken?: string): Promise<void> {
       lines.push(`${icon} ${label}: ${detail}`);
     }
 
-    lines.push('\n로그인: 터미널에서 vibeclaw-ai auth login [codex|claude|gemini]');
+    lines.push('\n로그인: 터미널에서 vibepity auth login [codex|claude|gemini]');
     await ctx.reply(lines.join('\n'));
   });
 
   // /help
   bot.command('help', async (ctx) => {
     await ctx.reply(
-      'VibeClaw AI 명령어:\n\n' +
+      'Vibepity 명령어:\n\n' +
       '/model [codex|claude|gemini] - AI 모델 전환\n' +
       '/status - 인증 상태\n' +
       '/clear - 대화 초기화\n' +
       '/help - 이 도움말\n\n' +
       'PC에서 로그인:\n' +
-      'vibeclaw-ai auth login codex\n' +
-      'vibeclaw-ai auth login claude\n' +
-      'vibeclaw-ai auth login gemini',
+      'vibepity auth login codex\n' +
+      'vibepity auth login claude\n' +
+      'vibepity auth login gemini',
     );
   });
 
@@ -193,13 +193,13 @@ export async function startTelegramBot(botToken?: string): Promise<void> {
     console.error('[Bot Error]', err.message);
   });
 
-  console.log('[VibeClaw AI] Starting Telegram bot (multi-provider)...');
+  console.log('[Vibepity] Starting Telegram bot (multi-provider)...');
 
   await bot.start({
     onStart: (botInfo) => {
-      console.log(`[VibeClaw AI] Running as @${botInfo.username}`);
-      console.log(`[VibeClaw AI] https://t.me/${botInfo.username}`);
-      console.log(`[VibeClaw AI] Providers: codex, claude, gemini`);
+      console.log(`[Vibepity] Running as @${botInfo.username}`);
+      console.log(`[Vibepity] https://t.me/${botInfo.username}`);
+      console.log(`[Vibepity] Providers: codex, claude, gemini`);
     },
   });
 }

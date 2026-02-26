@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import { authenticateOAuth, getValidToken, getAllAuthStatus, type AuthProvider } from '@vibeclaw-ai/auth';
-import { BudgetTracker } from '@vibeclaw-ai/budget';
-import { SkillManager } from '@vibeclaw-ai/skills';
-import { Agent } from '@vibeclaw-ai/core';
-import { loadVibeClawConfig, saveVibeClawConfig, initWorkspace, isInitialized } from '@vibeclaw-ai/workspace';
+import { authenticateOAuth, getValidToken, getAllAuthStatus, type AuthProvider } from '@vibepity/auth';
+import { BudgetTracker } from '@vibepity/budget';
+import { SkillManager } from '@vibepity/skills';
+import { Agent } from '@vibepity/core';
+import { loadVibepityConfig, saveVibepityConfig, initWorkspace, isInitialized } from '@vibepity/workspace';
 
 const app = express();
 const PORT = 3177;
@@ -155,7 +155,7 @@ app.delete('/api/skills/:name', async (req, res) => {
 // ─── Config ──────────────────────────────────────────────
 app.get('/api/config', async (_req, res) => {
   try {
-    const config = await loadVibeClawConfig();
+    const config = await loadVibepityConfig();
     res.json(config);
   } catch (e) {
     res.status(500).json({ error: (e as Error).message });
@@ -164,7 +164,7 @@ app.get('/api/config', async (_req, res) => {
 
 app.post('/api/config', async (req, res) => {
   try {
-    const updated = await saveVibeClawConfig(req.body);
+    const updated = await saveVibepityConfig(req.body);
     // Reinitialize agent with new config
     agent = null;
     res.json(updated);
@@ -193,6 +193,6 @@ app.post('/api/workspace/init', async (_req, res) => {
 
 // ─── Start ───────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`[VibeClaw AI] API server running on http://localhost:${PORT}`);
-  console.log(`[VibeClaw AI] Dashboard: http://localhost:5173`);
+  console.log(`[Vibepity] API server running on http://localhost:${PORT}`);
+  console.log(`[Vibepity] Dashboard: http://localhost:5173`);
 });

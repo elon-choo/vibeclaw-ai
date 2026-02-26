@@ -2,12 +2,12 @@ import type { WorkspaceFile } from './types.js';
 
 /**
  * Default workspace file templates.
- * Inspired by OpenClaw's workspace system, adapted for VibeClaw AI.
+ * Inspired by OpenClaw's workspace system, adapted for Vibepity.
  */
 export const TEMPLATES: Record<WorkspaceFile, string> = {
-  'AGENTS.md': `# VibeClaw AI Agent Rules
+  'AGENTS.md': `# Vibepity Agent Rules
 
-> This file defines how VibeClaw AI behaves. Edit it to customize your agent.
+> This file defines how Vibepity behaves. Edit it to customize your agent.
 > Equivalent to CLAUDE.md / OpenClaw's AGENTS.md.
 
 ## Core Behavior
@@ -29,9 +29,9 @@ export const TEMPLATES: Record<WorkspaceFile, string> = {
 
 `,
 
-  'SOUL.md': `# VibeClaw AI Soul
+  'SOUL.md': `# Vibepity Soul
 
-> This file defines VibeClaw AI's personality and communication style.
+> This file defines Vibepity's personality and communication style.
 
 ## Personality
 
@@ -55,14 +55,14 @@ export const TEMPLATES: Record<WorkspaceFile, string> = {
 
 `,
 
-  'MEMORY.md': `# VibeClaw AI Memory
+  'MEMORY.md': `# Vibepity Memory
 
 > Long-term memory persisted across sessions.
-> VibeClaw AI updates this file automatically as it learns about you.
+> Vibepity updates this file automatically as it learns about you.
 
 ## User Preferences
 
-<!-- VibeClaw AI will fill this in as it learns -->
+<!-- Vibepity will fill this in as it learns -->
 
 ## Project Context
 
@@ -74,13 +74,13 @@ export const TEMPLATES: Record<WorkspaceFile, string> = {
 
 `,
 
-  'IDENTITY.md': `# VibeClaw AI Identity
+  'IDENTITY.md': `# Vibepity Identity
 
 > Agent name and display configuration.
 
 ## Name
 
-VibeClaw AI
+Vibepity
 
 ## Version
 
@@ -95,11 +95,11 @@ Coding agent + general assistant, secured and cost-optimized.
 
   'USER.md': `# User Profile
 
-> Your preferences and context. Edit this to help VibeClaw AI serve you better.
+> Your preferences and context. Edit this to help Vibepity serve you better.
 
 ## About Me
 
-<!-- Tell VibeClaw AI about yourself -->
+<!-- Tell Vibepity about yourself -->
 <!-- e.g., "I'm a backend developer working mostly in TypeScript and Go" -->
 
 ## Preferred Tools
@@ -116,7 +116,7 @@ Coding agent + general assistant, secured and cost-optimized.
 
 `,
 
-  'TOOLS.md': `# VibeClaw AI Tools Guide
+  'TOOLS.md': `# Vibepity Tools Guide
 
 > Available tools and how to use them.
 
@@ -137,10 +137,10 @@ Each skill has a \`SKILL.md\` that defines its behavior.
 
 \`\`\`bash
 # From ClawHub (with security scan)
-vibeclaw-ai skill install <skill-name>
+vibepity skill install <skill-name>
 
 # Local skill
-vibeclaw-ai skill add ./my-skill/
+vibepity skill add ./my-skill/
 \`\`\`
 
 ### Creating Skills
@@ -156,9 +156,9 @@ Description: Does something useful
 `,
 };
 
-/** Default vibeclaw-ai.json config */
-export const DEFAULT_VIBECLAW_CONFIG = {
-  agentName: 'VibeClaw AI',
+/** Default vibepity.json config */
+export const DEFAULT_VIBEPITY_CONFIG = {
+  agentName: 'Vibepity',
   defaultModel: 'gpt-5.1-codex-mini',
   maxConcurrent: 4,
   proxy: {

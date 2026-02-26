@@ -83,9 +83,9 @@ export type BudgetEventHandler = (event: BudgetEvent) => void;
 export const DEFAULT_LIMITS: BudgetLimits = {
   perRequest: 0,
   perSession: 0,
-  perDay: 500_000,
-  perMonth: 10_000_000,
-  maxDailyCostUsd: 5.00,
-  maxMonthlyCostUsd: 50.00,
+  perDay: 0,
+  perMonth: 0,
+  maxDailyCostUsd: 0,
+  maxMonthlyCostUsd: 0,
   warningThreshold: 0.8,
 };

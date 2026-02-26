@@ -1,11 +1,11 @@
 {
-  "name": "vibeclaw-ai",
+  "name": "vibepity",
   "version": "0.1.0",
   "type": "module",
   "description": "ChatGPT OAuth-powered open-source AI assistant + coding agent",
   "license": "MIT",
   "bin": {
-    "vibeclaw-ai": "dist/index.js"
+    "vibepity": "dist/index.js"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,22 +16,22 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --external @vibeclaw-ai/auth --external @vibeclaw-ai/proxy --external @vibeclaw-ai/workspace --external @vibeclaw-ai/providers --external @vibeclaw-ai/telegram --external @vibeclaw-ai/budget --external @vibeclaw-ai/skills --external @vibeclaw-ai/core --external @vibeclaw-ai/daemon --external grammy",
+    "build": "tsup src/index.ts --format esm --dts --external @vibepity/auth --external @vibepity/proxy --external @vibepity/workspace --external @vibepity/providers --external @vibepity/telegram --external @vibepity/budget --external @vibepity/skills --external @vibepity/core --external @vibepity/daemon --external grammy",
     "dev": "tsx src/index.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/auth": "workspace:*",
-    "@vibeclaw-ai/proxy": "workspace:*",
-    "@vibeclaw-ai/workspace": "workspace:*",
-    "@vibeclaw-ai/providers": "workspace:*",
-    "@vibeclaw-ai/telegram": "workspace:*",
-    "@vibeclaw-ai/budget": "workspace:*",
-    "@vibeclaw-ai/skills": "workspace:*",
-    "@vibeclaw-ai/core": "workspace:*",
-    "@vibeclaw-ai/daemon": "workspace:*"
+    "@vibepity/auth": "workspace:*",
+    "@vibepity/proxy": "workspace:*",
+    "@vibepity/workspace": "workspace:*",
+    "@vibepity/providers": "workspace:*",
+    "@vibepity/telegram": "workspace:*",
+    "@vibepity/budget": "workspace:*",
+    "@vibepity/skills": "workspace:*",
+    "@vibepity/core": "workspace:*",
+    "@vibepity/daemon": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.4.0",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vibeclaw-ai/vibeclaw-ai"
+    "url": "https://github.com/vibepity/vibepity"
   },
   "keywords": [
     "ai",

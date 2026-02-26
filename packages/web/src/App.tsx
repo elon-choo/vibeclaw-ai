@@ -32,7 +32,7 @@ export function App() {
           borderBottom: '1px solid #2a2a2a',
           marginBottom: 8,
         }}>
-          <h1 style={{ fontSize: 20, fontWeight: 700, color: '#8b5cf6' }}>VibeClaw AI</h1>
+          <h1 style={{ fontSize: 20, fontWeight: 700, color: '#8b5cf6' }}>Vibepity</h1>
           <p style={{ fontSize: 12, color: '#666', marginTop: 4 }}>Your Free AI Assistant</p>
         </div>
 

@@ -31,7 +31,7 @@ async function main(): Promise<void> {
           break;
         }
         default:
-          console.log('Usage: vibeclaw-ai auth <login|status|logout> [codex|claude|gemini]');
+          console.log('Usage: vibepity auth <login|status|logout> [codex|claude|gemini]');
       }
       break;
     }
@@ -159,7 +159,7 @@ async function main(): Promise<void> {
     }
 
     case 'telegram': {
-      const { startTelegramBot } = await import('@vibeclaw-ai/telegram');
+      const { startTelegramBot } = await import('@vibepity/telegram');
       await startTelegramBot();
       break;
     }
@@ -167,7 +167,7 @@ async function main(): Promise<void> {
     case 'version':
     case '--version':
     case '-v': {
-      console.log('vibeclaw-ai 0.1.0');
+      console.log('vibepity 0.1.0');
       break;
     }
 
@@ -183,14 +183,14 @@ async function main(): Promise<void> {
 
 function printHelp(): void {
   console.log(`
-  \x1b[1m\x1b[35mVibeClaw AI\x1b[0m - Token-saving, security-first AI agent
+  \x1b[1m\x1b[35mVibepity\x1b[0m - Token-saving, security-first AI agent
 
   \x1b[1mUSAGE\x1b[0m
-    vibeclaw-ai <command> [options]
+    vibepity <command> [options]
 
   \x1b[1mCOMMANDS\x1b[0m
     onboard          Interactive setup wizard
-    chat             Start chatting with VibeClaw AI
+    chat             Start chatting with Vibepity
     auth login       Authenticate with ChatGPT
     auth status      Check authentication status
     auth logout      Clear stored tokens
@@ -215,11 +215,11 @@ function printHelp(): void {
     help             Show this help
 
   \x1b[1mEXAMPLES\x1b[0m
-    $ vibeclaw-ai onboard       # First-time setup
-    $ vibeclaw-ai chat          # Start chatting
-    $ vibeclaw-ai proxy start   # Start proxy for Claude Code
+    $ vibepity onboard       # First-time setup
+    $ vibepity chat          # Start chatting
+    $ vibepity proxy start   # Start proxy for Claude Code
 
-  \x1b[2mhttps://github.com/vibeclaw-ai/vibeclaw-ai\x1b[0m
+  \x1b[2mhttps://github.com/vibepity/vibepity\x1b[0m
 `);
 }
 

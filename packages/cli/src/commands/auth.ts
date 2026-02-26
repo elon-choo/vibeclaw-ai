@@ -1,5 +1,5 @@
 import { ui, spinner } from '../ui.js';
-import type { AuthProvider } from '@vibeclaw-ai/auth';
+import type { AuthProvider } from '@vibepity/auth';
 
 const VALID_PROVIDERS: AuthProvider[] = ['codex', 'claude', 'gemini'];
 const PROVIDER_LABELS: Record<AuthProvider, string> = {
@@ -24,7 +24,7 @@ export async function authLogin(providerArg?: string): Promise<void> {
   const s = spinner('Waiting for authentication...');
 
   try {
-    const { authenticateOAuth } = await import('@vibeclaw-ai/auth');
+    const { authenticateOAuth } = await import('@vibepity/auth');
     const tokens = await authenticateOAuth(provider);
     s.stop(true, `${PROVIDER_LABELS[provider]} authenticated!`);
     const remaining = Math.max(0, Math.round((tokens.expires_at - Date.now()) / 60000));
@@ -37,7 +37,7 @@ export async function authLogin(providerArg?: string): Promise<void> {
 }
 
 export async function authStatus(): Promise<void> {
-  const { getAllAuthStatus, PROVIDER_CONFIGS } = await import('@vibeclaw-ai/auth');
+  const { getAllAuthStatus, PROVIDER_CONFIGS } = await import('@vibepity/auth');
   const statuses = await getAllAuthStatus();
 
   ui.header('  Authentication Status\n');
@@ -52,12 +52,12 @@ export async function authStatus(): Promise<void> {
   }
 
   console.log('');
-  ui.info('Login: vibeclaw-ai auth login [codex|claude|gemini]');
+  ui.info('Login: vibepity auth login [codex|claude|gemini]');
 }
 
 export async function authLogout(providerArg?: string): Promise<void> {
   const provider = parseProvider(providerArg);
-  const { clearProviderToken } = await import('@vibeclaw-ai/auth');
+  const { clearProviderToken } = await import('@vibepity/auth');
   await clearProviderToken(provider);
   ui.success(`${PROVIDER_LABELS[provider]} tokens cleared.`);
 }

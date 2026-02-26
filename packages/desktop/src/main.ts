@@ -2,7 +2,7 @@ import { app, BrowserWindow, Tray, Menu, nativeImage, shell } from 'electron';
 import * as path from 'path';
 import { spawn, type ChildProcess } from 'child_process';
 
-const APP_NAME = 'VibeClaw AI';
+const APP_NAME = 'Vibepity';
 const API_PORT = 3177;
 const WEB_PORT = 5173;
 const PROXY_PORT = 8317;
@@ -36,7 +36,7 @@ function createWindow(): void {
           <body style="background:#0a0a0a;color:#e5e5e5;font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column">
             <h1 style="color:#8b5cf6">${APP_NAME}</h1>
             <p>Starting server...</p>
-            <p style="color:#666;font-size:13px;margin-top:20px">If this persists, run: vibeclaw-ai dev</p>
+            <p style="color:#666;font-size:13px;margin-top:20px">If this persists, run: vibepity dev</p>
           </body>
         </html>
       `);

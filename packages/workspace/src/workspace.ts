@@ -2,12 +2,12 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
-import type { WorkspaceFile, WorkspaceLayout, MemoryEntry, VibeClawConfig } from './types.js';
-import { TEMPLATES, DEFAULT_VIBECLAW_CONFIG } from './templates.js';
+import type { WorkspaceFile, WorkspaceLayout, MemoryEntry, VibepityConfig } from './types.js';
+import { TEMPLATES, DEFAULT_VIBEPITY_CONFIG } from './templates.js';
 
-const VIBECLAW_DIR = join(homedir(), '.vibeclaw-ai');
-const WORKSPACE_DIR = join(VIBECLAW_DIR, 'workspace');
-const CONFIG_FILE = join(VIBECLAW_DIR, 'vibeclaw-ai.json');
+const VIBEPITY_DIR = join(homedir(), '.vibepity');
+const WORKSPACE_DIR = join(VIBEPITY_DIR, 'workspace');
+const CONFIG_FILE = join(VIBEPITY_DIR, 'vibepity.json');
 const SKILLS_DIR = join(WORKSPACE_DIR, 'skills');
 const MEMORY_DIR = join(WORKSPACE_DIR, 'memory');
 
@@ -65,13 +65,13 @@ export async function initWorkspace(customRoot?: string): Promise<{
     }
   }
 
-  // Create vibeclaw-ai.json if not exists
+  // Create vibepity.json if not exists
   if (!existsSync(CONFIG_FILE)) {
-    await mkdir(VIBECLAW_DIR, { recursive: true });
-    await writeFile(CONFIG_FILE, JSON.stringify(DEFAULT_VIBECLAW_CONFIG, null, 2), 'utf-8');
-    created.push('vibeclaw-ai.json');
+    await mkdir(VIBEPITY_DIR, { recursive: true });
+    await writeFile(CONFIG_FILE, JSON.stringify(DEFAULT_VIBEPITY_CONFIG, null, 2), 'utf-8');
+    created.push('vibepity.json');
   } else {
-    skipped.push('vibeclaw-ai.json');
+    skipped.push('vibepity.json');
   }
 
   return { created, skipped };
@@ -154,24 +154,24 @@ export async function listSkills(customRoot?: string): Promise<string[]> {
 }
 
 /**
- * Load vibeclaw-ai.json config.
+ * Load vibepity.json config.
  */
-export async function loadVibeClawConfig(): Promise<VibeClawConfig> {
+export async function loadVibepityConfig(): Promise<VibepityConfig> {
   try {
-    if (!existsSync(CONFIG_FILE)) return { ...DEFAULT_VIBECLAW_CONFIG };
+    if (!existsSync(CONFIG_FILE)) return { ...DEFAULT_VIBEPITY_CONFIG };
     const raw = await readFile(CONFIG_FILE, 'utf-8');
-    return { ...DEFAULT_VIBECLAW_CONFIG, ...JSON.parse(raw) };
+    return { ...DEFAULT_VIBEPITY_CONFIG, ...JSON.parse(raw) };
   } catch {
-    return { ...DEFAULT_VIBECLAW_CONFIG };
+    return { ...DEFAULT_VIBEPITY_CONFIG };
   }
 }
 
 /**
- * Save vibeclaw-ai.json config (merges with existing).
+ * Save vibepity.json config (merges with existing).
  */
-export async function saveVibeClawConfig(updates: Partial<VibeClawConfig>): Promise<VibeClawConfig> {
-  await mkdir(VIBECLAW_DIR, { recursive: true });
-  const existing = await loadVibeClawConfig();
+export async function saveVibepityConfig(updates: Partial<VibepityConfig>): Promise<VibepityConfig> {
+  await mkdir(VIBEPITY_DIR, { recursive: true });
+  const existing = await loadVibepityConfig();
   const merged = { ...existing, ...updates };
   await writeFile(CONFIG_FILE, JSON.stringify(merged, null, 2), 'utf-8');
   return merged;

@@ -7,14 +7,14 @@ export {
   appendMemory,
   writeDailyLog,
   listSkills,
-  loadVibeClawConfig,
-  saveVibeClawConfig,
+  loadVibepityConfig,
+  saveVibepityConfig,
   buildSystemContext,
 } from './workspace.js';
-export { TEMPLATES, DEFAULT_VIBECLAW_CONFIG } from './templates.js';
+export { TEMPLATES, DEFAULT_VIBEPITY_CONFIG } from './templates.js';
 export type {
   WorkspaceFile,
   WorkspaceLayout,
   MemoryEntry,
-  VibeClawConfig,
+  VibepityConfig,
 } from './types.js';

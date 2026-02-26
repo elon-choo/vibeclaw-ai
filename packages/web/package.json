@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/web",
+  "name": "@vibepity/web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -13,12 +13,12 @@
     "clean": "rm -rf dist dist-server"
   },
   "dependencies": {
-    "@vibeclaw-ai/auth": "workspace:*",
-    "@vibeclaw-ai/budget": "workspace:*",
-    "@vibeclaw-ai/core": "workspace:*",
-    "@vibeclaw-ai/providers": "workspace:*",
-    "@vibeclaw-ai/skills": "workspace:*",
-    "@vibeclaw-ai/workspace": "workspace:*",
+    "@vibepity/auth": "workspace:*",
+    "@vibepity/budget": "workspace:*",
+    "@vibepity/core": "workspace:*",
+    "@vibepity/providers": "workspace:*",
+    "@vibepity/skills": "workspace:*",
+    "@vibepity/workspace": "workspace:*",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "react": "^19.1.0",

@@ -4,14 +4,14 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 
-const BUNDLE_ID = 'com.vibeclaw-ai.daemon';
+const BUNDLE_ID = 'com.vibepity.daemon';
 const PLIST_DIR = join(homedir(), 'Library', 'LaunchAgents');
 const PLIST_PATH = join(PLIST_DIR, `${BUNDLE_ID}.plist`);
-const LOG_DIR = join(homedir(), '.vibeclaw-ai', 'logs');
-const PID_FILE = join(homedir(), '.vibeclaw-ai', 'daemon.pid');
+const LOG_DIR = join(homedir(), '.vibepity', 'logs');
+const PID_FILE = join(homedir(), '.vibepity', 'daemon.pid');
 
 export interface DaemonConfig {
-  /** Path to the vibeclaw-ai CLI binary */
+  /** Path to the vibepity CLI binary */
   cliBinary: string;
   /** Start proxy on daemon launch */
   startProxy: boolean;
@@ -24,7 +24,7 @@ export interface DaemonConfig {
 }
 
 const DEFAULT_DAEMON_CONFIG: DaemonConfig = {
-  cliBinary: 'vibeclaw-ai',
+  cliBinary: 'vibepity',
   startProxy: true,
   startTelegram: false,
   keepAlive: true,
@@ -43,14 +43,14 @@ function buildPlist(config: DaemonConfig): string {
     nodePath = '/usr/local/bin/node';
   }
 
-  // Find vibeclaw-ai CLI path
+  // Find vibepity CLI path
   let cliBinary = config.cliBinary;
-  if (cliBinary === 'vibeclaw-ai') {
+  if (cliBinary === 'vibepity') {
     try {
-      cliBinary = execSync('which vibeclaw-ai', { encoding: 'utf-8' }).trim();
+      cliBinary = execSync('which vibepity', { encoding: 'utf-8' }).trim();
     } catch {
       // Use npx fallback
-      cliBinary = join(homedir(), '.vibeclaw-ai', 'node_modules', '.bin', 'vibeclaw-ai');
+      cliBinary = join(homedir(), '.vibepity', 'node_modules', '.bin', 'vibepity');
     }
   }
 

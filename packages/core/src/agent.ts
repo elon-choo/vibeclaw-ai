@@ -1,9 +1,9 @@
-import type { Provider, CompletionOptions, CompletionResult, Message } from '@vibeclaw-ai/providers';
-import { CodexProvider, OpenAIProvider } from '@vibeclaw-ai/providers';
-import { BudgetTracker } from '@vibeclaw-ai/budget';
-import { SkillManager } from '@vibeclaw-ai/skills';
-import { loadVibeClawConfig } from '@vibeclaw-ai/workspace';
-import { getValidToken, authenticateOAuth, loadConfig } from '@vibeclaw-ai/auth';
+import type { Provider, CompletionOptions, CompletionResult, Message } from '@vibepity/providers';
+import { CodexProvider, OpenAIProvider } from '@vibepity/providers';
+import { BudgetTracker } from '@vibepity/budget';
+import { SkillManager } from '@vibepity/skills';
+import { loadVibepityConfig } from '@vibepity/workspace';
+import { getValidToken, authenticateOAuth, loadConfig } from '@vibepity/auth';
 import { ContextAutopilot } from './context-autopilot.js';
 import { HybridMode, type AgentMode } from './hybrid-mode.js';
 
@@ -30,7 +30,7 @@ export interface ChatResult {
 }
 
 /**
- * VibeClaw AI Agent v2 - core agent loop with Context Autopilot & Hybrid Mode.
+ * Vibepity Agent v2 - core agent loop with Context Autopilot & Hybrid Mode.
  *
  * Flow:
  * 1. Hybrid Mode detection (coding/assistant/search/creative)
@@ -67,7 +67,7 @@ export class Agent {
    * Initialize the agent.
    */
   async init(): Promise<void> {
-    const config = await loadVibeClawConfig();
+    const config = await loadVibepityConfig();
     this.model = config.defaultModel ?? this.model;
 
     if (!this.noBudget) {
@@ -116,7 +116,7 @@ export class Agent {
       const blockReason = this.budget.checkBefore(this.model, 1000, 2000);
       if (blockReason) {
         return {
-          text: `[Budget blocked] ${blockReason}\nAdjust limits: vibeclaw-ai budget set --daily-tokens <amount>`,
+          text: `[Budget blocked] ${blockReason}\nAdjust limits: vibepity budget set --daily-tokens <amount>`,
           model: this.model,
           mode,
           budgetWarnings: [blockReason],

@@ -23,8 +23,8 @@ export interface MemoryEntry {
   metadata?: Record<string, unknown>;
 }
 
-/** VibeClaw AI main config (~/.vibeclaw-ai/vibeclaw-ai.json) */
-export interface VibeClawConfig {
+/** Vibepity main config (~/.vibepity/vibepity.json) */
+export interface VibepityConfig {
   /** Agent display name */
   agentName?: string;
   /** Default model */

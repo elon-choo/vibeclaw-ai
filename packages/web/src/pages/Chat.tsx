@@ -57,7 +57,7 @@ export function ChatPage() {
         {messages.length === 0 && (
           <div style={{ textAlign: 'center', marginTop: '20vh', color: '#444' }}>
             <div style={{ fontSize: 48, marginBottom: 16 }}>🤖</div>
-            <h2 style={{ fontSize: 24, color: '#666', marginBottom: 8 }}>VibeClaw AI</h2>
+            <h2 style={{ fontSize: 24, color: '#666', marginBottom: 8 }}>Vibepity</h2>
             <p style={{ color: '#555' }}>무엇이든 물어보세요. ChatGPT와 동일한 AI입니다.</p>
             <p style={{ color: '#444', fontSize: 13, marginTop: 8 }}>Tip: /code, /creative, /search 로 모드 전환</p>
           </div>

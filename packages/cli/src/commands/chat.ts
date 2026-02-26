@@ -1,11 +1,11 @@
 import { createInterface } from 'node:readline';
 import { ui } from '../ui.js';
-import type { Message } from '@vibeclaw-ai/providers';
+import type { Message } from '@vibepity/providers';
 
 export async function chat(): Promise<void> {
-  const { CodexProvider } = await import('@vibeclaw-ai/providers');
-  const { buildSystemContext, loadVibeClawConfig } = await import('@vibeclaw-ai/workspace');
-  const { getValidToken, authenticateOAuth } = await import('@vibeclaw-ai/auth');
+  const { CodexProvider } = await import('@vibepity/providers');
+  const { buildSystemContext, loadVibepityConfig } = await import('@vibepity/workspace');
+  const { getValidToken, authenticateOAuth } = await import('@vibepity/auth');
 
   // Ensure authenticated
   const tokens = await getValidToken();
@@ -14,13 +14,13 @@ export async function chat(): Promise<void> {
     await authenticateOAuth();
   }
 
-  const config = await loadVibeClawConfig();
+  const config = await loadVibepityConfig();
   const systemContext = await buildSystemContext();
   const provider = new CodexProvider();
   const history: Message[] = [];
 
   ui.banner();
-  ui.info(`Chatting with ${config.agentName ?? 'VibeClaw AI'} (${config.defaultModel ?? 'gpt-5.1-codex-mini'})`);
+  ui.info(`Chatting with ${config.agentName ?? 'Vibepity'} (${config.defaultModel ?? 'gpt-5.1-codex-mini'})`);
   ui.dim('Type /quit to exit, /clear to reset history\n');
 
   const rl = createInterface({
@@ -68,7 +68,7 @@ export async function chat(): Promise<void> {
       const response = result.text || '(no response)';
       history.push({ role: 'assistant', content: response });
 
-      console.log(`\n\x1b[33m${config.agentName ?? 'VibeClaw AI'}:\x1b[0m ${response}\n`);
+      console.log(`\n\x1b[33m${config.agentName ?? 'Vibepity'}:\x1b[0m ${response}\n`);
 
       if (result.usage) {
         ui.dim(`tokens: ${result.usage.inputTokens}in / ${result.usage.outputTokens}out`);

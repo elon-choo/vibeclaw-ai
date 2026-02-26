@@ -12,7 +12,7 @@ import type {
 } from './types.js';
 import { DEFAULT_LIMITS, MODEL_PRICING } from './types.js';
 
-const BUDGET_DIR = join(homedir(), '.vibeclaw-ai', 'budget');
+const BUDGET_DIR = join(homedir(), '.vibepity', 'budget');
 const LIMITS_FILE = join(BUDGET_DIR, 'limits.json');
 
 function getDailyFile(): string {

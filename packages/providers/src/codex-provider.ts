@@ -1,4 +1,4 @@
-import { getValidToken, authenticateOAuth } from '@vibeclaw-ai/auth';
+import { getValidToken, authenticateOAuth } from '@vibepity/auth';
 import type { Provider, CompletionOptions, CompletionResult } from './types.js';
 
 const CODEX_BACKEND = 'https://chatgpt.com/backend-api/codex/responses';
@@ -16,7 +16,7 @@ export class CodexProvider implements Provider {
 
     const requestBody = {
       model: options.model ?? DEFAULT_MODEL,
-      instructions: options.systemPrompt ?? 'You are VibeClaw AI, a helpful AI assistant. Be concise and helpful. Respond in the same language as the user.',
+      instructions: options.systemPrompt ?? 'You are Vibepity, a helpful AI assistant. Be concise and helpful. Respond in the same language as the user.',
       input: options.messages,
       store: false,
       stream: true,
@@ -28,7 +28,7 @@ export class CodexProvider implements Provider {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokens.access_token}`,
-        'User-Agent': 'vibeclaw-ai/0.1.0',
+        'User-Agent': 'vibepity/0.1.0',
         'Accept': 'text/event-stream',
       },
       body: JSON.stringify(requestBody),

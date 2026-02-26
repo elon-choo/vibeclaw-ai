@@ -145,7 +145,7 @@ export class ProxyManager {
     // This is a minimal pass-through that adds OAuth tokens to requests
     const config = this.config!;
     const { createServer } = await import('node:http');
-    const { getValidToken } = await import('@vibeclaw-ai/auth');
+    const { getValidToken } = await import('@vibepity/auth');
 
     const server = createServer(async (req, res) => {
       // Health endpoint
@@ -184,14 +184,14 @@ export class ProxyManager {
         // Build upstream request headers
         const headers: Record<string, string> = {
           'Content-Type': 'application/json',
-          'User-Agent': 'vibeclaw-ai-proxy/0.1.0',
+          'User-Agent': 'vibepity-proxy/0.1.0',
         };
 
         if (route.backend.auth === 'codex-oauth') {
           const tokens = await getValidToken();
           if (!tokens) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Not authenticated. Run: vibeclaw-ai onboard' }));
+            res.end(JSON.stringify({ error: 'Not authenticated. Run: vibepity onboard' }));
             return;
           }
           headers['Authorization'] = `Bearer ${tokens.access_token}`;
@@ -216,7 +216,7 @@ export class ProxyManager {
           const claudeTokens = await getValidToken('claude');
           if (!claudeTokens) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Claude not authenticated. Run: vibeclaw-ai auth login claude' }));
+            res.end(JSON.stringify({ error: 'Claude not authenticated. Run: vibepity auth login claude' }));
             return;
           }
           // Claude Messages API format
@@ -240,7 +240,7 @@ export class ProxyManager {
           const geminiTokens = await getValidToken('gemini');
           if (!geminiTokens) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Gemini not authenticated. Run: vibeclaw-ai auth login gemini' }));
+            res.end(JSON.stringify({ error: 'Gemini not authenticated. Run: vibepity auth login gemini' }));
             return;
           }
           headers['Authorization'] = `Bearer ${geminiTokens.access_token}`;
@@ -319,7 +319,7 @@ export class ProxyManager {
         const pid = process.pid;
         await savePid(pid);
 
-        console.log(`[VibeClaw AI Proxy] Listening on 127.0.0.1:${config.port} (built-in)`);
+        console.log(`[Vibepity Proxy] Listening on 127.0.0.1:${config.port} (built-in)`);
         resolve({
           running: true,
           pid,

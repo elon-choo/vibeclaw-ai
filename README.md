@@ -1,6 +1,6 @@
 <div align="center">
 
-# VibeClaw AI
+# Vibepity
 
 ### Your Free AI Assistant, Running on Your PC
 
@@ -8,9 +8,9 @@ ChatGPT Plus 구독만 있으면 무료로 쓰는 AI 비서.
 PC 앱 + 웹 대시보드 + 텔레그램, 어디서든 내 AI.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows)](https://github.com/elon-choo/vibeclaw-ai/releases)
-[![macOS](https://img.shields.io/badge/macOS-000000?logo=apple)](https://github.com/elon-choo/vibeclaw-ai/releases)
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram)](https://t.me/vibeclaw_bot)
+[![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows)](https://github.com/elon-choo/vibepity/releases)
+[![macOS](https://img.shields.io/badge/macOS-000000?logo=apple)](https://github.com/elon-choo/vibepity/releases)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram)](https://t.me/vibepity_bot)
 
 [English](#english) | [한국어](#한국어)
 
@@ -22,7 +22,7 @@ PC 앱 + 웹 대시보드 + 텔레그램, 어디서든 내 AI.
 
 ## 이게 뭔가요?
 
-**VibeClaw AI**는 내 PC에서 돌아가는 무료 AI 비서입니다.
+**Vibepity**는 내 PC에서 돌아가는 무료 AI 비서입니다.
 
 - ChatGPT Plus 구독($20/월)으로 **추가 비용 $0**
 - **Windows / macOS / Linux** 모두 지원
@@ -40,12 +40,12 @@ PC 앱 + 웹 대시보드 + 텔레그램, 어디서든 내 AI.
 
 ### 방법 2: 터미널 (개발자)
 ```bash
-npx vibeclaw-ai onboard
+npx vibepity onboard
 ```
 
 ### 방법 3: 텔레그램
-1. PC에서 `vibeclaw-ai` 설치 + ChatGPT 로그인
-2. 텔레그램에서 @vibeclaw_bot 검색 → 시작
+1. PC에서 `vibepity` 설치 + ChatGPT 로그인
+2. 텔레그램에서 @vibepity_bot 검색 → 시작
 3. 끝! 폰에서 AI 사용 가능
 
 ## 뭘 할 수 있나요?
@@ -61,11 +61,11 @@ npx vibeclaw-ai onboard
 | 🔒 **보안 스킬** | 스킬 설치 전 자동 보안 검사 |
 | 📱 **텔레그램** | 폰에서도 AI 비서 사용 |
 
-## 왜 VibeClaw AI?
+## 왜 Vibepity?
 
 OpenClaw(19만 스타)의 보안 강화 대안입니다.
 
-| | OpenClaw | VibeClaw AI |
+| | OpenClaw | Vibepity |
 |---|---------|-------------|
 | 비용 | 요금 폭탄 위험 | 토큰 예산 관리 |
 | 보안 | 악성 스킬 20% | 설치 전 보안 스캔 |
@@ -95,7 +95,7 @@ OpenClaw(19만 스타)의 보안 강화 대안입니다.
 
            ↓
 
-VibeClaw AI Core
+Vibepity Core
   ├── Hybrid Mode (코딩/비서/창작/검색 자동 전환)
   ├── Context Autopilot (자동 컨텍스트 최적화)
   ├── Token Budget Manager (비용 관리)
@@ -115,7 +115,7 @@ API Proxy (127.0.0.1:8317)
 
 ## What is this?
 
-**VibeClaw AI** is a free AI assistant that runs on your PC.
+**Vibepity** is a free AI assistant that runs on your PC.
 
 - Uses your ChatGPT Plus subscription ($20/mo) — **$0 extra cost**
 - **Windows + macOS + Linux**
@@ -133,29 +133,29 @@ API Proxy (127.0.0.1:8317)
 
 ### Option 2: Terminal (Developers)
 ```bash
-npx vibeclaw-ai onboard
+npx vibepity onboard
 ```
 
 ## CLI Commands
 
 ```
-vibeclaw-ai onboard         # Setup wizard
-vibeclaw-ai chat            # Chat with AI
-vibeclaw-ai auth login      # Login (codex/claude/gemini)
-vibeclaw-ai auth status     # Check all auth status
-vibeclaw-ai proxy start     # Start API proxy
-vibeclaw-ai budget          # View token usage
-vibeclaw-ai skill install   # Install skill (with security scan)
-vibeclaw-ai skill scan      # Scan all skills
-vibeclaw-ai daemon install  # Background daemon
-vibeclaw-ai telegram        # Telegram bot
+vibepity onboard         # Setup wizard
+vibepity chat            # Chat with AI
+vibepity auth login      # Login (codex/claude/gemini)
+vibepity auth status     # Check all auth status
+vibepity proxy start     # Start API proxy
+vibepity budget          # View token usage
+vibepity skill install   # Install skill (with security scan)
+vibepity skill scan      # Scan all skills
+vibepity daemon install  # Background daemon
+vibepity telegram        # Telegram bot
 ```
 
 ## Development
 
 ```bash
-git clone https://github.com/elon-choo/vibeclaw-ai.git
-cd vibeclaw-ai
+git clone https://github.com/elon-choo/vibepity.git
+cd vibepity
 pnpm install
 pnpm run build
 ```

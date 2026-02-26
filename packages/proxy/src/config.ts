@@ -6,12 +6,12 @@ import { stringify, parse } from 'yaml';
 import type { ProxyConfig } from './types.js';
 import { DEFAULT_CONFIG } from './types.js';
 
-const VIBECLAW_DIR = join(homedir(), '.vibeclaw-ai');
-const PROXY_CONFIG_FILE = join(VIBECLAW_DIR, 'proxy.yaml');
-const PID_FILE = join(VIBECLAW_DIR, 'proxy.pid');
+const VIBEPITY_DIR = join(homedir(), '.vibepity');
+const PROXY_CONFIG_FILE = join(VIBEPITY_DIR, 'proxy.yaml');
+const PID_FILE = join(VIBEPITY_DIR, 'proxy.pid');
 
 export function getConfigDir(): string {
-  return VIBECLAW_DIR;
+  return VIBEPITY_DIR;
 }
 
 export function getConfigPath(): string {
@@ -34,13 +34,13 @@ export async function loadProxyConfig(): Promise<ProxyConfig> {
 }
 
 export async function saveProxyConfig(config: ProxyConfig): Promise<void> {
-  await mkdir(VIBECLAW_DIR, { recursive: true });
+  await mkdir(VIBEPITY_DIR, { recursive: true });
   const yamlStr = stringify(config, { indent: 2 });
   await writeFile(PROXY_CONFIG_FILE, yamlStr, 'utf-8');
 }
 
 export async function savePid(pid: number): Promise<void> {
-  await mkdir(VIBECLAW_DIR, { recursive: true });
+  await mkdir(VIBEPITY_DIR, { recursive: true });
   await writeFile(PID_FILE, String(pid), 'utf-8');
 }
 

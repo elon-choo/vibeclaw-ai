@@ -1,7 +1,7 @@
 import { ui, confirm } from '../ui.js';
 
 export async function daemonInstall(): Promise<void> {
-  const { install, load } = await import('@vibeclaw-ai/daemon');
+  const { install, load } = await import('@vibepity/daemon');
 
   ui.info('Installing LaunchAgent...');
   const plistPath = await install();
@@ -15,7 +15,7 @@ export async function daemonInstall(): Promise<void> {
 }
 
 export async function daemonStart(): Promise<void> {
-  const { install, load, isRunning } = await import('@vibeclaw-ai/daemon');
+  const { install, load, isRunning } = await import('@vibepity/daemon');
 
   if (isRunning()) {
     ui.warn('Daemon is already running');
@@ -29,7 +29,7 @@ export async function daemonStart(): Promise<void> {
 }
 
 export async function daemonStop(): Promise<void> {
-  const { unload, isRunning } = await import('@vibeclaw-ai/daemon');
+  const { unload, isRunning } = await import('@vibepity/daemon');
 
   if (!isRunning()) {
     ui.warn('Daemon is not running');
@@ -41,11 +41,11 @@ export async function daemonStop(): Promise<void> {
 }
 
 export async function daemonStatus(): Promise<void> {
-  const { getStatus } = await import('@vibeclaw-ai/daemon');
+  const { getStatus } = await import('@vibepity/daemon');
   const status = await getStatus();
 
   if (!status.installed) {
-    ui.warn('Daemon not installed. Run: vibeclaw-ai daemon install');
+    ui.warn('Daemon not installed. Run: vibepity daemon install');
     return;
   }
 
@@ -57,7 +57,7 @@ export async function daemonStatus(): Promise<void> {
 }
 
 export async function daemonLogs(): Promise<void> {
-  const { readLogs } = await import('@vibeclaw-ai/daemon');
+  const { readLogs } = await import('@vibepity/daemon');
   const logs = await readLogs(30);
   console.log(logs);
 }
@@ -66,14 +66,14 @@ export async function daemonUninstall(): Promise<void> {
   const doIt = await confirm('Remove daemon LaunchAgent?', false);
   if (!doIt) return;
 
-  const { uninstall } = await import('@vibeclaw-ai/daemon');
+  const { uninstall } = await import('@vibepity/daemon');
   await uninstall();
   ui.success('Daemon uninstalled');
 }
 
 export async function daemonRun(args: string[]): Promise<void> {
   // This is called by the LaunchAgent, not by users directly
-  const { runDaemon } = await import('@vibeclaw-ai/daemon');
+  const { runDaemon } = await import('@vibepity/daemon');
   await runDaemon({
     proxy: args.includes('--proxy'),
     telegram: args.includes('--telegram'),

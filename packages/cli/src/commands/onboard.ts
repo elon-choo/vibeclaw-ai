@@ -1,7 +1,7 @@
 import { ui, prompt, confirm, spinner } from '../ui.js';
 
 /**
- * `vibeclaw-ai onboard` - Interactive setup wizard.
+ * `vibepity onboard` - Interactive setup wizard.
  *
  * Steps:
  * 1. Check Node.js version
@@ -13,7 +13,7 @@ import { ui, prompt, confirm, spinner } from '../ui.js';
  */
 export async function onboard(): Promise<void> {
   ui.banner();
-  ui.header('Welcome to VibeClaw AI Setup');
+  ui.header('Welcome to Vibepity Setup');
   ui.dim('This wizard will set up everything you need.\n');
 
   const TOTAL_STEPS = 5;
@@ -25,7 +25,7 @@ export async function onboard(): Promise<void> {
   const major = parseInt(nodeVersion.split('.')[0], 10);
 
   if (major < 22) {
-    ui.error(`Node.js ${nodeVersion} detected. VibeClaw AI requires Node.js >= 22.`);
+    ui.error(`Node.js ${nodeVersion} detected. Vibepity requires Node.js >= 22.`);
     ui.info('Install: https://nodejs.org/ or use nvm: nvm install 22');
     process.exit(1);
   }
@@ -36,8 +36,8 @@ export async function onboard(): Promise<void> {
   // ─── Step 2: Initialize workspace ────────────────────────────
   ui.step(2, TOTAL_STEPS, 'Setting up workspace...');
 
-  const { initWorkspace, isInitialized, loadVibeClawConfig, saveVibeClawConfig } =
-    await import('@vibeclaw-ai/workspace');
+  const { initWorkspace, isInitialized, loadVibepityConfig, saveVibepityConfig } =
+    await import('@vibepity/workspace');
 
   if (isInitialized()) {
     ui.warn('Workspace already exists. Keeping existing files.');
@@ -53,16 +53,16 @@ export async function onboard(): Promise<void> {
   }
 
   // Ask for agent name
-  const config = await loadVibeClawConfig();
-  const agentName = await prompt('Agent name', config.agentName ?? 'VibeClaw AI');
+  const config = await loadVibepityConfig();
+  const agentName = await prompt('Agent name', config.agentName ?? 'Vibepity');
   if (agentName !== config.agentName) {
-    await saveVibeClawConfig({ agentName });
+    await saveVibepityConfig({ agentName });
   }
 
   // ─── Step 3: ChatGPT OAuth ──────────────────────────────────
   ui.step(3, TOTAL_STEPS, 'Authenticating with ChatGPT...');
 
-  const { getValidToken, authenticateOAuth } = await import('@vibeclaw-ai/auth');
+  const { getValidToken, authenticateOAuth } = await import('@vibepity/auth');
   const existingToken = await getValidToken();
 
   if (existingToken) {
@@ -81,10 +81,10 @@ export async function onboard(): Promise<void> {
       } catch (e) {
         s.stop(false, 'Authentication failed');
         ui.error((e as Error).message);
-        ui.info('You can retry later with: vibeclaw-ai auth login');
+        ui.info('You can retry later with: vibepity auth login');
       }
     } else {
-      ui.warn('Skipped. Run `vibeclaw-ai auth login` later.');
+      ui.warn('Skipped. Run `vibepity auth login` later.');
     }
   }
 
@@ -96,21 +96,21 @@ export async function onboard(): Promise<void> {
     ui.info('Get a bot token from @BotFather: https://t.me/BotFather');
     const botToken = await prompt('Bot token');
     if (botToken) {
-      const { saveConfig } = await import('@vibeclaw-ai/auth');
+      const { saveConfig } = await import('@vibepity/auth');
       await saveConfig({ telegramBotToken: botToken });
-      await saveVibeClawConfig({ telegramBotToken: botToken });
+      await saveVibepityConfig({ telegramBotToken: botToken });
       ui.success('Telegram bot token saved');
     } else {
       ui.warn('No token provided. Skipped.');
     }
   } else {
-    ui.dim('Skipped. Run `vibeclaw-ai telegram setup` later.');
+    ui.dim('Skipped. Run `vibepity telegram setup` later.');
   }
 
   // ─── Step 5: Proxy config ───────────────────────────────────
   ui.step(5, TOTAL_STEPS, 'Configuring proxy...');
 
-  const { saveProxyConfig, DEFAULT_CONFIG } = await import('@vibeclaw-ai/proxy');
+  const { saveProxyConfig, DEFAULT_CONFIG } = await import('@vibepity/proxy');
   await saveProxyConfig(DEFAULT_CONFIG);
   ui.success(`Proxy config saved (port: ${DEFAULT_CONFIG.port})`);
 
@@ -119,8 +119,8 @@ export async function onboard(): Promise<void> {
   ui.header(`  ${agentName} is ready!\n`);
 
   ui.summary([
-    { label: 'Workspace', value: '~/.vibeclaw-ai/workspace/' },
-    { label: 'Config', value: '~/.vibeclaw-ai/vibeclaw-ai.json' },
+    { label: 'Workspace', value: '~/.vibepity/workspace/' },
+    { label: 'Config', value: '~/.vibepity/vibepity.json' },
     { label: 'Proxy', value: `127.0.0.1:${DEFAULT_CONFIG.port}` },
     { label: 'Auth', value: existingToken || !!(await getValidToken()) ? 'Authenticated' : 'Not set' },
     { label: 'Telegram', value: setupTelegram ? 'Configured' : 'Not set' },
@@ -128,9 +128,9 @@ export async function onboard(): Promise<void> {
 
   console.log('');
   ui.header('  Next steps:');
-  ui.info('vibeclaw-ai chat        - Start chatting');
-  ui.info('vibeclaw-ai proxy start - Start the API proxy');
-  ui.info('vibeclaw-ai telegram    - Launch Telegram bot');
-  ui.dim('Edit ~/.vibeclaw-ai/workspace/AGENTS.md to customize behavior');
+  ui.info('vibepity chat        - Start chatting');
+  ui.info('vibepity proxy start - Start the API proxy');
+  ui.info('vibepity telegram    - Launch Telegram bot');
+  ui.dim('Edit ~/.vibepity/workspace/AGENTS.md to customize behavior');
   console.log('');
 }

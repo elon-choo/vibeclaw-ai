@@ -1,15 +1,15 @@
 import { ui, confirm, spinner } from '../ui.js';
 
 export async function skillList(): Promise<void> {
-  const { SkillManager } = await import('@vibeclaw-ai/skills');
+  const { SkillManager } = await import('@vibepity/skills');
   const manager = new SkillManager();
 
   const skills = await manager.list();
 
   if (skills.length === 0) {
     ui.info('No skills installed.');
-    ui.dim('Install from ClawHub: vibeclaw-ai skill install <name>');
-    ui.dim('Add local skill:     vibeclaw-ai skill add ./my-skill/');
+    ui.dim('Install from ClawHub: vibepity skill install <name>');
+    ui.dim('Add local skill:     vibepity skill add ./my-skill/');
     return;
   }
 
@@ -29,7 +29,7 @@ export async function skillList(): Promise<void> {
 }
 
 export async function skillInstall(nameOrPath: string): Promise<void> {
-  const { SkillManager } = await import('@vibeclaw-ai/skills');
+  const { SkillManager } = await import('@vibepity/skills');
   const manager = new SkillManager();
 
   const s = spinner(`Installing skill "${nameOrPath}"...`);
@@ -80,7 +80,7 @@ export async function skillInstall(nameOrPath: string): Promise<void> {
         const { cp, rm } = await import('node:fs/promises');
         const { join } = await import('node:path');
         const { homedir } = await import('node:os');
-        const dest = join(homedir(), '.vibeclaw-ai', 'workspace', 'skills', result.name);
+        const dest = join(homedir(), '.vibepity', 'workspace', 'skills', result.name);
         await cp(result.path, dest, { recursive: true });
         await rm(join(dest, 'SECURITY-REPORT.json'), { force: true });
         ui.success(`Force-installed: ${result.name}`);
@@ -93,7 +93,7 @@ export async function skillInstall(nameOrPath: string): Promise<void> {
 }
 
 export async function skillRemove(name: string): Promise<void> {
-  const { SkillManager } = await import('@vibeclaw-ai/skills');
+  const { SkillManager } = await import('@vibepity/skills');
   const manager = new SkillManager();
 
   const removed = await manager.remove(name);
@@ -105,7 +105,7 @@ export async function skillRemove(name: string): Promise<void> {
 }
 
 export async function skillScan(): Promise<void> {
-  const { SkillManager } = await import('@vibeclaw-ai/skills');
+  const { SkillManager } = await import('@vibepity/skills');
   const manager = new SkillManager();
 
   const s = spinner('Scanning all installed skills...');
@@ -120,7 +120,7 @@ export async function skillScan(): Promise<void> {
 }
 
 export async function skillSearch(query: string): Promise<void> {
-  const { SkillManager } = await import('@vibeclaw-ai/skills');
+  const { SkillManager } = await import('@vibepity/skills');
   const manager = new SkillManager();
 
   const s = spinner(`Searching ClawHub for "${query}"...`);
@@ -137,5 +137,5 @@ export async function skillSearch(query: string): Promise<void> {
     ui.dim(`    by ${r.author} | ${r.downloads} downloads | ${r.stars} stars`);
   }
 
-  ui.info('\nInstall with: vibeclaw-ai skill install <name>');
+  ui.info('\nInstall with: vibepity skill install <name>');
 }

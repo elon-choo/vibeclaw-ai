@@ -62,7 +62,7 @@ export function SkillsPage() {
           <div style={{ fontSize: 36, marginBottom: 12 }}>📦</div>
           <p style={{ color: '#888' }}>No skills installed</p>
           <p style={{ color: '#555', fontSize: 13, marginTop: 8 }}>
-            Install from CLI: vibeclaw-ai skill install &lt;name&gt;
+            Install from CLI: vibepity skill install &lt;name&gt;
           </p>
         </div>
       ) : (

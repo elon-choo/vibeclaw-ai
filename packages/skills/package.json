@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/skills",
+  "name": "@vibepity/skills",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,7 +19,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/workspace": "workspace:*"
+    "@vibepity/workspace": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.4.0",

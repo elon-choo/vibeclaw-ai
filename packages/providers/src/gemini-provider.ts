@@ -1,4 +1,4 @@
-import { getValidToken, authenticateOAuth, loadConfig } from '@vibeclaw-ai/auth';
+import { getValidToken, authenticateOAuth, loadConfig } from '@vibepity/auth';
 import type { Provider, CompletionOptions, CompletionResult } from './types.js';
 
 const GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -42,7 +42,7 @@ export class GeminiProvider implements Provider {
     let url: string;
     let headers: Record<string, string> = {
       'Content-Type': 'application/json',
-      'User-Agent': 'vibeclaw-ai/0.1.0',
+      'User-Agent': 'vibepity/0.1.0',
     };
 
     if (this.apiKey) {

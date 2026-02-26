@@ -1,4 +1,4 @@
-import type { Message } from '@vibeclaw-ai/providers';
+import type { Message } from '@vibepity/providers';
 import { classifyIntent } from './context-autopilot.js';
 
 /** Agent mode determines behavior, system prompt, and model selection */
@@ -20,7 +20,7 @@ const MODE_CONFIGS: Record<AgentMode, ModeConfig> = {
   coding: {
     label: 'Coding',
     systemPromptPrefix: [
-      'You are VibeClaw AI in CODING MODE.',
+      'You are Vibepity in CODING MODE.',
       'Focus on writing clean, working code.',
       'Follow existing project conventions.',
       'Be concise - code speaks louder than words.',
@@ -34,7 +34,7 @@ const MODE_CONFIGS: Record<AgentMode, ModeConfig> = {
   assistant: {
     label: 'Assistant',
     systemPromptPrefix: [
-      'You are VibeClaw AI, a helpful AI assistant.',
+      'You are Vibepity, a helpful AI assistant.',
       'Be concise and direct.',
       'Respond in the same language as the user.',
       'If the task is complex, break it down into steps.',
@@ -45,7 +45,7 @@ const MODE_CONFIGS: Record<AgentMode, ModeConfig> = {
   search: {
     label: 'Search',
     systemPromptPrefix: [
-      'You are VibeClaw AI in SEARCH MODE.',
+      'You are Vibepity in SEARCH MODE.',
       'Provide factual, well-sourced answers.',
       'If you are uncertain, say so clearly.',
       'Prefer bullet points for clarity.',
@@ -57,7 +57,7 @@ const MODE_CONFIGS: Record<AgentMode, ModeConfig> = {
   creative: {
     label: 'Creative',
     systemPromptPrefix: [
-      'You are VibeClaw AI in CREATIVE MODE.',
+      'You are Vibepity in CREATIVE MODE.',
       'Be imaginative and engaging.',
       'Match the user\'s tone and style preferences.',
       'Offer multiple options when brainstorming.',
@@ -70,7 +70,7 @@ const MODE_CONFIGS: Record<AgentMode, ModeConfig> = {
 /**
  * Hybrid Agent Mode - automatically switches between coding and assistant modes.
  *
- * OpenClaw is coding-only. VibeClaw AI detects intent and adapts its behavior,
+ * OpenClaw is coding-only. Vibepity detects intent and adapts its behavior,
  * system prompt, and model selection accordingly.
  */
 export class HybridMode {

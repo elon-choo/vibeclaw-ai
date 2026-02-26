@@ -1,5 +1,5 @@
 {
-  "name": "@vibeclaw-ai/telegram",
+  "name": "@vibepity/telegram",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,8 +19,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@vibeclaw-ai/auth": "workspace:*",
-    "@vibeclaw-ai/providers": "workspace:*",
+    "@vibepity/auth": "workspace:*",
+    "@vibepity/providers": "workspace:*",
     "grammy": "^1.30.0"
   },
   "devDependencies": {

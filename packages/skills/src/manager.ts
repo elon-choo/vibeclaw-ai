@@ -11,10 +11,10 @@ import type {
   ClawHubSkill,
 } from './types.js';
 
-const WORKSPACE_DIR = join(homedir(), '.vibeclaw-ai', 'workspace');
+const WORKSPACE_DIR = join(homedir(), '.vibepity', 'workspace');
 const SKILLS_DIR = join(WORKSPACE_DIR, 'skills');
-const QUARANTINE_DIR = join(homedir(), '.vibeclaw-ai', 'quarantine');
-const SCAN_CACHE_FILE = join(homedir(), '.vibeclaw-ai', 'skill-scans.json');
+const QUARANTINE_DIR = join(homedir(), '.vibepity', 'quarantine');
+const SCAN_CACHE_FILE = join(homedir(), '.vibepity', 'skill-scans.json');
 
 // ClawHub registry base URL (OpenClaw compatible)
 const CLAWHUB_REGISTRY = 'https://hub.openclaw.com/api/v1';
@@ -190,7 +190,7 @@ export class SkillManager {
   async searchClawHub(query: string): Promise<ClawHubSkill[]> {
     try {
       const res = await fetch(`${CLAWHUB_REGISTRY}/skills/search?q=${encodeURIComponent(query)}`, {
-        headers: { 'User-Agent': 'vibeclaw-ai/0.1.0' },
+        headers: { 'User-Agent': 'vibepity/0.1.0' },
         signal: AbortSignal.timeout(10000),
       });
 
@@ -268,7 +268,7 @@ export class SkillManager {
   private async fetchClawHubMeta(name: string): Promise<ClawHubSkill | null> {
     try {
       const res = await fetch(`${CLAWHUB_REGISTRY}/skills/${encodeURIComponent(name)}`, {
-        headers: { 'User-Agent': 'vibeclaw-ai/0.1.0' },
+        headers: { 'User-Agent': 'vibepity/0.1.0' },
         signal: AbortSignal.timeout(10000),
       });
       if (!res.ok) return null;
@@ -282,7 +282,7 @@ export class SkillManager {
     const res = await fetch(
       `${CLAWHUB_REGISTRY}/skills/${encodeURIComponent(name)}/SKILL.md`,
       {
-        headers: { 'User-Agent': 'vibeclaw-ai/0.1.0' },
+        headers: { 'User-Agent': 'vibepity/0.1.0' },
         signal: AbortSignal.timeout(10000),
       },
     );
@@ -314,7 +314,7 @@ export class SkillManager {
   }
 
   private async persistScanCache(): Promise<void> {
-    await mkdir(join(homedir(), '.vibeclaw-ai'), { recursive: true });
+    await mkdir(join(homedir(), '.vibepity'), { recursive: true });
     await writeFile(SCAN_CACHE_FILE, JSON.stringify(this.scanCache, null, 2), 'utf-8');
   }
 }

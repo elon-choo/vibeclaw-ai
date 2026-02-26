@@ -1,12 +1,12 @@
 {
-  "name": "vibeclaw-ai",
+  "name": "vibepity",
   "version": "0.1.0",
   "private": true,
   "description": "ChatGPT OAuth-powered open-source AI assistant + coding agent",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vibeclaw-ai/vibeclaw-ai"
+    "url": "https://github.com/vibepity/vibepity"
   },
   "engines": {
     "node": ">=22.0.0",
